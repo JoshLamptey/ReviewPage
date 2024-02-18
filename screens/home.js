@@ -12,4 +12,4 @@ const style = StyleSheet.create({
     container:{
         padding:24
     }
-})
+}) 
