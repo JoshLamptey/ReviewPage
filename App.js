@@ -1,13 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import  {useState } from 'react';
-import * as Font from 'expo-font'
+import  React,{useState } from 'react';
+import * as Font from ''
 import {AppLoading} from 'expo'
 import Home from './screens/home';
 
-
 function getFonts(){
-  return Font.loadAsync({
-    'roboto-Regular':require('./assets/Font/Roboto-Regular.ttf'),
+  return useFonts({
+    'roboto-regular':require('./assets/Font/Roboto-Regular.ttf'),
     'roboto-medium':require('./assets/Font/Roboto-Medium.ttf'),
 
   })
@@ -23,8 +22,8 @@ export default function App() {
   }else{
     return(
       <AppLoading
-      startAsync={getFonts()}
-      onFinish={()=> setFontsLoaded(true)}
+      startAsync={getFonts}
+      onFinish={()=> setFontsLoaded(true) }
       />
     )
   }
