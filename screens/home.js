@@ -1,5 +1,4 @@
 import {StyleSheet,View,Text} from 'react-native'
-import React from "react";
 
 export default function Home(){
     return(
@@ -11,5 +10,10 @@ export default function Home(){
 const style = StyleSheet.create({
     container:{
         padding:24
+    },
+    titleText:{
+        fontFamily:'roboto-regular',
+        fontSize:'38'
     }
+
 }) 
