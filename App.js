@@ -1,31 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import  React,{useState } from 'react';
-import * as Font from ''
-import {AppLoading} from 'expo'
+import  React,{useEffect } from 'react';
+import {useFonts} from 'expo-font'
+import * as SplashScreen from 'expo-splash-screen';
 import Home from './screens/home';
+import About from './screens/about';
 
-function getFonts(){
-  return useFonts({
-    'roboto-regular':require('./assets/Font/Roboto-Regular.ttf'),
-    'roboto-medium':require('./assets/Font/Roboto-Medium.ttf'),
 
+
+
+export default function App() {  
+  const [FontsLoaded]= useFonts({
+    "Roboto Medium" : require("./assets/Font/Roboto Medium.ttf"),
+    "Roboto Medium" : require("./assets/Font/Roboto Regular.ttf")
   })
-}
 
-export default function App() {
-  const  [fontsLoaded,setFontsLoaded] = useState(false)
+  useEffect(()=>{
+    async function prepare(){
+      await SplashScreen.preventAutoHideAsync()
+    }
+    prepare()
+  },[])
 
-  if(fontsLoaded){
-      return (
-    <Home/>
-  );
+  if(!FontsLoaded){
+    return undefined
   }else{
-    return(
-      <AppLoading
-      startAsync={getFonts}
-      onFinish={()=> setFontsLoaded(true) }
-      />
-    )
+    SplashScreen.hideAsync()
   }
 
+  return(
+    <Home/>
+  )
 }
