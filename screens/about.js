@@ -3,7 +3,7 @@ import React from "react";
 
 export default function About(){
     return(
-        <View style={StyleSheet.container}>
+        <View style={style.container}>
             <Text>Home Page</Text>
         </View>
     )
@@ -11,5 +11,6 @@ export default function About(){
 const style = StyleSheet.create({
     container:{
         padding:24
-    }
+    },
+
 })
